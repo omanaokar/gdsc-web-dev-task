@@ -3,7 +3,7 @@ const Item = require('../models/Items');
 
 //Add a new Item
 const newItem = (req, res, next) => {
-    let item = new Item({
+    let item = new Item.Item({
         name: req.body.name,
         stock: req.body.stock,
         price: req.body.price
@@ -42,12 +42,12 @@ const removeItem = (req, res, next) => {
     let itemId = req.body.id
     Item.findByIdAndRemove(itemId)
     .then(() => {
-        req.json({
-            message : 'Employee deleted successfully!'
+        res.json({
+            message : 'Item deleted successfully!'
         })
     })
     .catch(error => {
-        req.json({
+        res.json({
             message : 'An error ocurred'
         })
     })
@@ -70,7 +70,7 @@ const updateItem = (req, res, next) => {
         })
     })
     .catch(error => {
-        req.json({
+        res.json({
             message : 'An error ocurred'
         })
     })
@@ -80,10 +80,10 @@ const updateItem = (req, res, next) => {
 const getStock = (req, res, next) => {
     let itemId = req.body.id
 
-    Item.findOne(itemId, {name: 1, stock : 1})
+    Item.findOne({_id : itemId}, {name: 1, stock : 1})
     .then(response => {
         res.json({
-            response
+            stock : response.stock
         })
     })
     .catch(error => {
@@ -100,15 +100,57 @@ let updateStock = (req, res, next) => {
         stock: req.body.stock
     }
 
-    Item.findOneAndUpdate(itemId, {$set : newStock})
+    Item.findOneAndUpdate({_id : itemId}, {$set : newStock})
     .then(() => {
         res.json({
             message : 'Stock updated successfully'
         })
     })
     .catch(error => {
-        req.json({
+        res.json({
             message : 'An error ocurred'
         })
     })
+}
+
+//Add stock 
+let addStock = (req, res, next) => {
+    let itemId = req.body.id
+    let increaseVal = {
+        stock : req.body.stock
+    }
+    Item.findOneAndUpdate({_id : itemId}, {$inc : increaseVal})
+    .then(() => {
+        res.json({
+            message : 'Stock added successfully'
+        })
+    })
+    .catch(error => {
+        res.json({
+            message : 'An error ocurred'
+        })
+    })
+}
+
+//Remove stock 
+let removeStock = (req, res, next) => {
+    let itemId = req.body.id
+    let decreaseVal = {
+        stock : -req.body.stock
+    }
+    Item.findOneAndUpdate({_id : itemId}, {$inc : decreaseVal})
+    .then(() => {
+        res.json({
+            message : 'Stock removed successfully'
+        })
+    })
+    .catch(error => {
+        res.json({
+            message : 'An error ocurred'
+        })
+    })
+}
+
+module.exports = {
+    newItem, getItem, removeItem, updateItem, getStock, updateStock, removeStock, addStock
 }

@@ -14,4 +14,7 @@ const itemSchema = new Schema({
 }, {timestamps: true})
 
 const Item = mongoose.model('Item', itemSchema)
-module.exports = Item
+
+module.exports = {
+    Item, itemSchema
+}
