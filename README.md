@@ -1,4 +1,4 @@
-![removeinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/1dce4ec7-cf19-4c12-9ecd-aa1dee07e6af)![removeinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/34f8ce95-441d-4a6f-89fe-71ea8952740a)# gdsc-web-dev-task
+# gdsc-web-dev-task
 
 ## Features
 - Framework used - Node.JS + Express
@@ -39,5 +39,6 @@
   ![updateinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/acb8c9d0-5c1a-40fc-8522-e30d2cc1fcf4)
   ![updateinvoicedb](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/6ea3eed6-11b9-49e4-b91f-b303d777117b)
 - Remove Invoice: Id of Invoice to be removed is accepted from query body
-  ![removeinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/266b557f-b967-4d21-aa2b-5be86d0e8509)
+  ![removeinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/1dce4ec7-cf19-4c12-9ecd-aa1dee07e6af)
+  ![removeinvoice](https://github.com/omanaokar/gdsc-web-dev-task/assets/37632805/34f8ce95-441d-4a6f-89fe-71ea8952740a)
 
