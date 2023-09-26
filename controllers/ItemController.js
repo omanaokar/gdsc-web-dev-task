@@ -24,7 +24,7 @@ const newItem = (req, res, next) => {
 //Get an Item
 const getItem = (req, res, next) => {
     let itemId = req.body.id
-    Item.findById(itemId)
+    Item.Item.findById(itemId)
     .then(response => {
         res.json({
             response
@@ -40,7 +40,7 @@ const getItem = (req, res, next) => {
 //Remove an Item
 const removeItem = (req, res, next) => {
     let itemId = req.body.id
-    Item.findByIdAndRemove(itemId)
+    Item.Item.findByIdAndRemove(itemId)
     .then(() => {
         res.json({
             message : 'Item deleted successfully!'
