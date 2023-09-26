@@ -1,4 +1,4 @@
-# gdsc-web-dev-task
+# GDSC Web-Dev Task (Backend Development)
 
 ## Features
 - Framework used - Node.JS + Express
